@@ -1,0 +1,6 @@
+Install nodeJS
+npm init (w/ default values)
+npm i express ejs bcrypt passport passport-local express-session express-flash method-override
+npm i --save-dev nodemon dotenv
+create .env file w/ SESSION_SECRET=secret
+npm run devStart
