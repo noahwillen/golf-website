@@ -1,4 +1,27 @@
+<% if (name) { %>
 <h1>Hi <%= name %></h1>
 <form action="/logout?_method=DELETE" method="POST">
   <button type="submit">Log Out</button>
 </form>
+<a href="/post-event">Post Event</a>
+<% } else { %>
+  <a href="/login">Login</a>
+<% } %>
+
+<% if (events.length > 0 ) { %>
+  <div>
+    <% events.forEach(e => { %>
+      <div> 
+        <%= e.event_name %>
+        <%= e.location %>
+        <%= e.date %>
+        <%= e.coord_name %>
+        <%= e.coord_email %>
+        <form action="/register-event" method="GET">
+          <input type="hidden" id="eventid" name="eventid" value= <%=e.id%> required>
+          <button type="submit">Register Event</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
